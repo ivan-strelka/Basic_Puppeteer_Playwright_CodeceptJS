@@ -21,6 +21,10 @@ const puppeteer = require('puppeteer');
         return response.request().resourceType() === "xhr"
     })
 
+    await page2.waitForResponse(response => {
+        return response.request().resourceType() === "image"
+    })
+
     await browser.close();
 
 })();
